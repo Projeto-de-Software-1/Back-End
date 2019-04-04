@@ -1,21 +1,22 @@
-"use strict";
+'use strict'
 
 /** @type {import('@adonisjs/lucid/src/Schema')} */
-const Schema = use("Schema");
+
+const Schema = use('Schema')
 
 class UserSchema extends Schema {
-  up() {
-    this.create("users", table => {
-      table.increments();
+  up () {
+    this.create('users', table => {
+      table.increments()
       table
-        .string("username", 80)
+        .string('username', 80)
         .notNullable()
-        .unique();
+        .unique()
       table
-        .string("email", 254)
+        .string('email', 254)
         .notNullable()
-        .unique();
-      table.string("password", 60).notNullable();
+        .unique()
+      table.string('password', 60).notNullable()
       /*
       table
         .integer("id_address")
@@ -25,14 +26,14 @@ class UserSchema extends Schema {
         .onUpdate("CASCADE")
         .onDelete("CASCADE");
       */
-      table.date("birth").notNullable();
-      table.timestamps();
-    });
+      table.date('birth').notNullable()
+      table.timestamps()
+    })
   }
 
-  down() {
-    this.drop("users");
+  down () {
+    this.drop('users')
   }
 }
 
-module.exports = UserSchema;
+module.exports = UserSchema
