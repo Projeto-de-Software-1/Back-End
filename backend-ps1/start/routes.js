@@ -17,3 +17,7 @@
 const Route = use('Route')
 
 Route.post('/users', 'UserController.store')
+<<<<<<< HEAD
+=======
+Route.post('/login', 'SessionController.store')
+>>>>>>> 78e46ffca180cb6931133e496b5ad15c1aa62150
