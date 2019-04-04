@@ -5,7 +5,7 @@ class UserController {
     const data = request.only(['username', 'email', 'password', 'birth'])
     const address = request.input('address')
     const user = await User.create(data)
-    await user.addresses().create(address)
+    if (address) await user.addresses().create(address)
     return user
   }
 }
