@@ -14,6 +14,13 @@ class AddressSchema extends Schema {
       table.string('street').notNullable()
       table.string('number').notNullable()
       table.string('complement')
+      table
+        .integer('user_id')
+        .unsigned()
+        .references('id')
+        .inTable('users')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
     })
   }
 
