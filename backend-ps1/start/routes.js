@@ -17,5 +17,6 @@
 const Route = use('Route')
 
 Route.post('/users', 'UserController.store')
-
 Route.post('/login', 'SessionController.store')
+Route.post('subject', 'SubjectController.store')
+Route.post('interest', 'SubjectUserController.store').middleware('auth')

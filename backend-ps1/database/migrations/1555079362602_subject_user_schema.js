@@ -3,10 +3,11 @@
 /** @type {import('@adonisjs/lucid/src/Schema')} */
 const Schema = use('Schema')
 
-class InterestSchema extends Schema {
+class SubjectUserSchema extends Schema {
   up () {
-    this.create('interests', table => {
+    this.create('subject_users', table => {
       table.increments()
+      table.timestamps()
       table
         .integer('user_id')
         .unsigned()
@@ -21,13 +22,12 @@ class InterestSchema extends Schema {
         .inTable('subjects')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
-      table.timestamps()
     })
   }
 
   down () {
-    this.drop('interests')
+    this.drop('subject_users')
   }
 }
 
-module.exports = InterestSchema
+module.exports = SubjectUserSchema

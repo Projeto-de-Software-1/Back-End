@@ -38,6 +38,11 @@ class User extends Model {
   addresses () {
     return this.hasMany('App/Models/Address')
   }
+  subjects () {
+    return this.belongsToMany('App/Models/Subject').pivotModel(
+      'App/Models/SubjectUser'
+    )
+  }
 }
 
 module.exports = User

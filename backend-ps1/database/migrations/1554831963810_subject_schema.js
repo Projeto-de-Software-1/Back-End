@@ -7,7 +7,7 @@ class SubjectSchema extends Schema {
   up () {
     this.create('subjects', table => {
       table.increments()
-      table.text('subject')
+      table.string('subject')
       table.timestamps()
     })
   }
