@@ -15,6 +15,13 @@ class ComplaintSchema extends Schema {
         .inTable('type_complaints')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
+      table
+        .integer('ad_id')
+        .unsigned()
+        .references('id')
+        .inTable('ads')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
       table.timestamps()
     })
   }
