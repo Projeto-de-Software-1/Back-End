@@ -8,6 +8,7 @@ class AnalyzeSchema extends Schema {
     this.create('analyzes', table => {
       table.increments()
       table.string('description').notNullable()
+      table.integer('deleted').defaultTo(0)
       table.timestamps()
     })
   }

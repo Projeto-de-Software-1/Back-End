@@ -14,6 +14,7 @@ class AddressSchema extends Schema {
       table.string('street').notNullable()
       table.string('number').notNullable()
       table.string('complement')
+      table.integer('deleted').defaultTo(0)
       table
         .integer('user_id')
         .unsigned()
