@@ -9,6 +9,11 @@ class Subject extends Model {
       'App/Models/SubjectUser'
     )
   }
+  materials () {
+    return this.belongsToMany('App/Models/Material').pivotModel(
+      'App/Models/MaterialSubject'
+    )
+  }
 }
 
 module.exports = Subject

@@ -7,7 +7,7 @@ class ConservationSchema extends Schema {
   up () {
     this.create('conservations', table => {
       table.increments()
-      table.string('conversation')
+      table.string('conservation')
       table.timestamps()
     })
   }
