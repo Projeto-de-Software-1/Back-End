@@ -15,7 +15,6 @@ class MaterialController {
       .where('materials.id', params.id)
       .where('deleted', 0)
       .fetch()
-    console.log(material)
     if (material.rows.length === 0) {
       response.status(404).send({ message: 'Material não encontrado' })
     }
