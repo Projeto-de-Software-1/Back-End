@@ -51,3 +51,8 @@ Route.get('type', 'TypeController.index')
 // cadastra e lista tipo de reclamacao
 Route.post('typecomplaint', 'TypeComplaintController.store')
 Route.get('typecomplaint', 'TypeComplaintController.index')
+
+// cadastra materiais
+Route.resource('materials', 'MaterialController')
+  .apiOnly()
+  .middleware('auth')
