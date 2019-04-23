@@ -13,7 +13,9 @@ class AdController {
       .where('deleted', 0)
       .first()
     if (existingAd) {
-      response.status(401).send({ message: 'Material já possui um anúncio' })
+      return response
+        .status(401)
+        .send({ message: 'Material já possui um anúncio' })
     }
 
     const ad = await auth.user.ads().create(data)
