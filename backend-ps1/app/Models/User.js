@@ -55,6 +55,9 @@ class User extends Model {
   evaluations () {
     return this.hasMany('App/Models/Evaluation')
   }
+  ads () {
+    return this.hasMany('App/Models/Ad')
+  }
 }
 
 module.exports = User

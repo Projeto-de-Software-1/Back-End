@@ -18,7 +18,7 @@ class MaterialController {
       .with('subjects')
       .fetch()
     if (material.rows.length === 0) {
-      response.status(404).send({ message: 'Material não encontrado' })
+      return response.status(404).send({ message: 'Material não encontrado' })
     }
     return material
   }
@@ -59,7 +59,7 @@ class MaterialController {
       await material.subjects().sync(subjects)
       return material
     }
-    response.status(404).send({ message: 'Material não encontrado' })
+    return response.status(404).send({ message: 'Material não encontrado' })
   }
 
   async destroy ({ auth, params, response }) {
@@ -72,7 +72,7 @@ class MaterialController {
       await material.save()
       return material
     }
-    response.status(404).send({ message: 'Material não encontrado' })
+    return response.status(404).send({ message: 'Material não encontrado' })
   }
 }
 

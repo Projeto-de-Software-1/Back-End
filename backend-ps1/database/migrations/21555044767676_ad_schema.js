@@ -24,7 +24,13 @@ class AdSchema extends Schema {
         .inTable('types')
         .onUpdate('CASCADE')
         .onDelete('CASCADE')
-
+      table
+        .integer('user_id')
+        .unsigned()
+        .references('id')
+        .inTable('users')
+        .onUpdate('CASCADE')
+        .onDelete('CASCADE')
       table.integer('deleted').defaultTo(0)
 
       table.timestamps()

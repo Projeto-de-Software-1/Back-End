@@ -11,10 +11,13 @@ class Ad extends Model {
     return this.hasMany('App/Models/Complaint')
   }
   types () {
-    return this.hasOne('App/Models/Type')
+    return this.belongsTo('App/Models/Type')
   }
   requests () {
     return this.hasMany('App/Models/Request')
+  }
+  users () {
+    return this.belongsTo('App/Models/User')
   }
 }
 

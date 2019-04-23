@@ -56,3 +56,7 @@ Route.get('typecomplaint', 'TypeComplaintController.index')
 Route.resource('materials', 'MaterialController')
   .apiOnly()
   .middleware('auth')
+
+Route.resource('ads', 'AdController')
+  .apiOnly()
+  .middleware('auth')

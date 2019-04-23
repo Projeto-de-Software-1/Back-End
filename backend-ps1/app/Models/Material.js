@@ -16,7 +16,7 @@ class Material extends Model {
     return this.hasOne('App/Models/Conservation')
   }
   ads () {
-    return this.hasOne('App/Models/Ads')
+    return this.hasOne('App/Models/Ad')
   }
   users () {
     return this.belongsTo('App/Models/user')
