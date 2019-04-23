@@ -5,6 +5,7 @@ class MaterialController {
     const materials = await auth.user
       .materials()
       .where('deleted', 0)
+      .with('subjects')
       .fetch()
     return materials
   }
@@ -14,6 +15,7 @@ class MaterialController {
       .materials()
       .where('materials.id', params.id)
       .where('deleted', 0)
+      .with('subjects')
       .fetch()
     if (material.rows.length === 0) {
       response.status(404).send({ message: 'Material não encontrado' })
@@ -29,7 +31,10 @@ class MaterialController {
       'category_id',
       'conservation_id'
     ])
+    const subjects = request.input(['subject'])
     const material = await auth.user.materials().create(data)
+    await material.subjects().sync(subjects)
+
     return material
   }
 
@@ -46,9 +51,12 @@ class MaterialController {
       'category_id',
       'conservation_id'
     ])
+    const subjects = request.input(['subject'])
+
     if (material) {
       material.merge(data)
       await material.save()
+      await material.subjects().sync(subjects)
       return material
     }
     response.status(404).send({ message: 'Material não encontrado' })
