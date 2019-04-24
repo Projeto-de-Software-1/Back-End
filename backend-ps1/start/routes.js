@@ -60,3 +60,7 @@ Route.resource('materials', 'MaterialController')
 Route.resource('ads', 'AdController')
   .apiOnly()
   .middleware('auth')
+
+Route.resource('requests', 'RequestController')
+  .apiOnly()
+  .middleware('auth')

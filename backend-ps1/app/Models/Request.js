@@ -5,7 +5,7 @@ const Model = use('Model')
 
 class Request extends Model {
   ads () {
-    return this.hasOne('App/Models/Ad')
+    return this.belongsTo('App/Models/Ad')
   }
   users () {
     return this.belongsTo('App/Models/User')
